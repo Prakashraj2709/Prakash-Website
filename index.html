@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prakash Raj | Video Editor & Storyteller</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,800;1,800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: black; color: white; }
+        
+        /* Grid Effect Overlay */
+        .grid-overlay {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            mask-image: radial-gradient(circle at center, black, transparent 80%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #22d3ee, #3b82f6, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: inline-flex;
+            animation: marquee 40s linear infinite;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(6, 182, 212, 0.1);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            pointer-events: none;
+            animation: float 15s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(100px, -50px) scale(1.3); }
+        }
+
+        .project-card.hidden { display: none; }
+    </style>
+</head>
+<body class="selection:bg-cyan-500/30 overflow-x-hidden">
+
+    <div class="grid-overlay"></div>
+
+    <div id="particle-container" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <nav class="fixed top-0 w-full z-[100] border-b border-white/5 bg-black/60 backdrop-blur-lg">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <span class="text-2xl font-black tracking-tighter uppercase italic text-gradient cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                PRAKASH RAJ
+            </span>
+            <div class="hidden md:flex gap-10 text-[10px] font-black tracking-[0.2em] text-zinc-400">
+                <a href="#work" class="hover:text-cyan-400 transition-colors">PORTFOLIO</a>
+                <a href="#testimonials" class="hover:text-cyan-400 transition-colors">TESTIMONIALS</a>
+                <a href="#resume" class="hover:text-cyan-400 transition-colors">RESUME</a>
+                <a href="#contact" class="text-white hover:text-cyan-400 transition-colors flex items-center gap-1 group">
+                    LET'S TALK <i data-lucide="arrow-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_#164e6333_0%,_#000_70%)] opacity-60"></div>
+        <div class="relative z-10 text-center px-6 max-w-7xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full mb-8">
+                <span class="w-2 h-2 bg-cyan-500 rounded-full animate-pulse"></span>
+                <span class="text-cyan-400 font-black tracking-[0.4em] uppercase text-[9px]">Available for Projects</span>
+            </div>
+            <h1 class="text-5xl sm:text-6xl md:text-8xl lg:text-[100px] font-black mb-12 tracking-tighter leading-[1] uppercase italic max-w-5xl mx-auto">
+                <span class="text-gradient">VIDEO EDITS THAT WILL WIN YOUR ATTENTION</span>
+            </h1>
+            <div class="flex flex-col sm:flex-row gap-5 justify-center">
+                <a href="#work" class="px-10 py-5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full font-black text-xs tracking-widest hover:scale-105 transition-all shadow-[0_0_40px_rgba(6,182,212,0.2)] flex items-center justify-center gap-2">
+                    VIEW WORK <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+                <a href="#contact" class="px-10 py-5 border border-white/10 rounded-full font-black text-xs tracking-widest hover:bg-white/5 transition-all text-white">
+                    LET'S TALK
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="bg-cyan-500 py-4 overflow-hidden whitespace-nowrap border-y border-black/10 relative z-20">
+        <div class="animate-marquee gap-20 text-black font-black text-xl italic uppercase tracking-tighter">
+            <span class="flex items-center gap-10">
+                PREMIERE PRO <i data-lucide="sparkles"></i> AFTER EFFECTS <i data-lucide="sparkles"></i> DAVINCI RESOLVE <i data-lucide="sparkles"></i> PHOTOSHOP <i data-lucide="sparkles"></i> ILLUSTRATOR <i data-lucide="sparkles"></i>
+                PREMIERE PRO <i data-lucide="sparkles"></i> AFTER EFFECTS <i data-lucide="sparkles"></i> DAVINCI RESOLVE <i data-lucide="sparkles"></i> PHOTOSHOP <i data-lucide="sparkles"></i> ILLUSTRATOR <i data-lucide="sparkles"></i>
+            </span>
+        </div>
+    </div>
+
+    <section id="work" class="py-32 px-6 max-w-7xl mx-auto relative z-10">
+        <div class="text-center mb-16">
+            <p class="text-gradient uppercase tracking-[0.4em] font-black text-2xl italic">PORTFOLIO</p>
+            <p class="text-zinc-500 uppercase tracking-widest text-[10px] mt-2">Hover to preview • Click to see full project</p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-3 mb-16" id="filter-buttons">
+            <button onclick="filter('ALL')" class="filter-btn active px-6 py-2 rounded-full text-[10px] font-black tracking-widest border bg-cyan-500 border-cyan-500 text-black">ALL</button>
+            <button onclick="filter('MOTION GRAPHICS')" class="filter-btn px-6 py-2 rounded-full text-[10px] font-black tracking-widest border border-white/10 text-zinc-500">MOTION GRAPHICS</button>
+            <button onclick="filter('INSTAGRAM REELS')" class="filter-btn px-6 py-2 rounded-full text-[10px] font-black tracking-widest border border-white/10 text-zinc-500">INSTAGRAM REELS</button>
+            <button onclick="filter('DOCUMENTARY STYLE')" class="filter-btn px-6 py-2 rounded-full text-[10px] font-black tracking-widest border border-white/10 text-zinc-500">DOCUMENTARY STYLE</button>
+            <button onclick="filter('LONG FORM CONTENT')" class="filter-btn px-6 py-2 rounded-full text-[10px] font-black tracking-widest border border-white/10 text-zinc-500">LONG FORM CONTENT</button>
+            <button onclick="filter('THUMBNAILS')" class="filter-btn px-6 py-2 rounded-full text-[10px] font-black tracking-widest border border-white/10 text-zinc-500">THUMBNAILS</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <a href="https://drive.google.com/drive/folders/1hRmyz7_tWXn4S5Zu6cb7MyCZf2hdGM6r" target="_blank" class="project-card group block relative overflow-hidden rounded-2xl bg-zinc-900/50 border border-white/5" data-cat="MOTION GRAPHICS">
+                <div class="aspect-video relative overflow-hidden bg-zinc-800">
+                    <video src="https://res.cloudinary.com/dkqlmjsg2/video/upload/Motion_Cut_Preview_cdu4vh.mp4" muted loop playsinline class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"></video>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60"></div>
+                    <div class="absolute bottom-4 left-4 z-10 text-sm font-black uppercase tracking-[0.2em] text-cyan-400">MOTION GRAPHICS</div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 bg-white rounded-full text-black opacity-0 group-hover:opacity-100 transition-all scale-75 group-hover:scale-100 z-20">
+                        <i data-lucide="play" fill="currentColor"></i>
+                    </div>
+                </div>
+                <div class="p-5 text-xs text-zinc-400 group-hover:text-zinc-200 transition-colors leading-relaxed">Motion design that supports the story instead of showing off the software.</div>
+            </a>
+            <a href="https://drive.google.com/drive/folders/11-hbACDgR64N_g7qHRQSbASfGR5FVJyv" target="_blank" class="project-card group block relative overflow-hidden rounded-2xl bg-zinc-900/50 border border-white/5" data-cat="INSTAGRAM REELS">
+                <div class="aspect-video relative overflow-hidden bg-zinc-800">
+                    <video src="https://res.cloudinary.com/dkqlmjsg2/video/upload/R1_wzu7yr.mp4" muted loop playsinline class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"></video>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60"></div>
+                    <div class="absolute bottom-4 left-4 z-10 text-sm font-black uppercase tracking-[0.2em] text-cyan-400">INSTAGRAM REELS</div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 bg-white rounded-full text-black opacity-0 group-hover:opacity-100 transition-all scale-75 group-hover:scale-100 z-20">
+                        <i data-lucide="play" fill="currentColor"></i>
+                    </div>
+                </div>
+                <div class="p-5 text-xs text-zinc-400 group-hover:text-zinc-200 transition-colors leading-relaxed">Built to survive the first second. And reward the next ten.</div>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1A7yv9fpiTwL5mkRJD8EeGVw8nnqoiYlb" target="_blank" class="project-card group block relative overflow-hidden rounded-2xl bg-zinc-900/50 border border-white/5" data-cat="DOCUMENTARY STYLE">
+                <div class="aspect-video relative overflow-hidden bg-zinc-800">
+                    <video src="https://res.cloudinary.com/dkqlmjsg2/video/upload/Documentary_Style_lpv2ss.mp4" muted loop playsinline class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"></video>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60"></div>
+                    <div class="absolute bottom-4 left-4 z-10 text-sm font-black uppercase tracking-[0.2em] text-cyan-400">DOCUMENTARY STYLE</div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 bg-white rounded-full text-black opacity-0 group-hover:opacity-100 transition-all scale-75 group-hover:scale-100 z-20">
+                        <i data-lucide="play" fill="currentColor"></i>
+                    </div>
+                </div>
+                <div class="p-5 text-xs text-zinc-400 group-hover:text-zinc-200 transition-colors leading-relaxed">Edits that trust silence as much as sound.</div>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1A7yv9fpiTwL5mkRJD8EeGVw8nnqoiYlb" target="_blank" class="project-card group block relative overflow-hidden rounded-2xl bg-zinc-900/50 border border-white/5" data-cat="LONG FORM CONTENT">
+                <div class="aspect-video relative overflow-hidden bg-zinc-800">
+                    <video src="https://res.cloudinary.com/dkqlmjsg2/video/upload/What_If_Earth_Had_Moon_s_Gravity_Life_in_Low_Gravity_480P_l8iorz.mp4" muted loop playsinline class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"></video>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60"></div>
+                    <div class="absolute bottom-4 left-4 z-10 text-sm font-black uppercase tracking-[0.2em] text-cyan-400">LONG FORM CONTENT</div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 bg-white rounded-full text-black opacity-0 group-hover:opacity-100 transition-all scale-75 group-hover:scale-100 z-20">
+                        <i data-lucide="play" fill="currentColor"></i>
+                    </div>
+                </div>
+                <div class="p-5 text-xs text-zinc-400 group-hover:text-zinc-200 transition-colors leading-relaxed">Structured for people who still enjoy staying.</div>
+            </a>
+            <a href="https://drive.google.com/drive/folders/1fcpCg1s55FU1iugjlbq4becEKtJANy4l" target="_blank" class="project-card group block relative overflow-hidden rounded-2xl bg-zinc-900/50 border border-white/5" data-cat="THUMBNAILS">
+                <div class="aspect-video relative overflow-hidden bg-zinc-800">
+                    <img src="https://res.cloudinary.com/dkqlmjsg2/image/upload/v1768546204/WhatsApp_Image_2025-03-08_at_5.28.00_PM_tfipsm.jpg" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60"></div>
+                    <div class="absolute bottom-4 left-4 z-10 text-sm font-black uppercase tracking-[0.2em] text-cyan-400">THUMBNAILS</div>
+                </div>
+                <div class="p-5 text-xs text-zinc-400 group-hover:text-zinc-200 transition-colors leading-relaxed">Designed to invite, not beg.</div>
+            </a>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-32 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-gradient text-4xl md:text-5xl font-black uppercase tracking-widest italic text-center mb-20">What happens after people work with me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="p-10 rounded-3xl bg-black border border-white/5 hover:border-cyan-500/50 transition-all group flex flex-col relative hover:-translate-y-2">
+                    <i data-lucide="quote" class="text-cyan-500/20 absolute top-8 right-8 w-10 h-10"></i>
+                    <p class="text-zinc-300 text-sm leading-relaxed italic mb-8 relative z-10">"He understands that good editing is not just about cutting clips. It’s about storytelling. He knows how to hook viewers in the first few seconds and keep them watching till the end."</p>
+                    <div class="mt-auto">
+                        <h4 class="text-gradient font-black text-xs tracking-widest uppercase mb-1">Hephzibah</h4>
+                        <p class="text-zinc-500 text-[10px] font-bold uppercase">Ex Social Media Head, TIC</p>
+                    </div>
+                </div>
+                <div class="p-10 rounded-3xl bg-black border border-white/5 hover:border-cyan-500/50 transition-all group flex flex-col relative hover:-translate-y-2">
+                    <i data-lucide="quote" class="text-cyan-500/20 absolute top-8 right-8 w-10 h-10"></i>
+                    <p class="text-zinc-300 text-sm leading-relaxed italic mb-8 relative z-10">"Honestly, Prakash didn’t just edit the lyrics video. He elevated it. The way he handled the visuals, timing, and flow really did justice to the song. It felt aligned with the emotion of the music."</p>
+                    <div class="mt-auto">
+                        <h4 class="text-gradient font-black text-xs tracking-widest uppercase mb-1">Abubakkar</h4>
+                        <p class="text-zinc-500 text-[10px] font-bold uppercase">Music Director</p>
+                    </div>
+                </div>
+                <div class="p-10 rounded-3xl bg-black border border-white/5 hover:border-cyan-500/50 transition-all group flex flex-col relative hover:-translate-y-2">
+                    <i data-lucide="quote" class="text-cyan-500/20 absolute top-8 right-8 w-10 h-10"></i>
+                    <p class="text-zinc-300 text-sm leading-relaxed italic mb-8 relative z-10">"His understanding of the script and his visual sense were completely different compared to other editors. Collaborating with him always felt easy, creative, and meaningful."</p>
+                    <div class="mt-auto">
+                        <h4 class="text-gradient font-black text-xs tracking-widest uppercase mb-1">Akshaya</h4>
+                        <p class="text-zinc-500 text-[10px] font-bold uppercase">Script Writer, LMES</p>
+                    </div>
+                </div>
+                <div class="p-10 rounded-3xl bg-black border border-white/5 hover:border-cyan-500/50 transition-all group flex flex-col relative hover:-translate-y-2">
+                    <i data-lucide="quote" class="text-cyan-500/20 absolute top-8 right-8 w-10 h-10"></i>
+                    <p class="text-zinc-300 text-sm leading-relaxed italic mb-8 relative z-10">"Working with Prakash was always smooth and stress free. He knew exactly how to blend animation with edits without overpowering either."</p>
+                    <div class="mt-auto">
+                        <h4 class="text-gradient font-black text-xs tracking-widest uppercase mb-1">Rishi</h4>
+                        <p class="text-zinc-500 text-[10px] font-bold uppercase">Animator, LMES</p>
+                    </div>
+                </div>
+                <div class="p-10 rounded-3xl bg-black border border-white/5 hover:border-cyan-500/50 transition-all group flex flex-col relative hover:-translate-y-2">
+                    <i data-lucide="quote" class="text-cyan-500/20 absolute top-8 right-8 w-10 h-10"></i>
+                    <p class="text-zinc-300 text-sm leading-relaxed italic mb-8 relative z-10">"One thing that stood out about Prakash from day one was his ability to deliver videos fast without ever compromising on quality. He is truly an asset."</p>
+                    <div class="mt-auto">
+                        <h4 class="text-gradient font-black text-xs tracking-widest uppercase mb-1">Santhosh</h4>
+                        <p class="text-zinc-500 text-[10px] font-bold uppercase">Freelance Content Strategist</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume" class="py-32 px-6 bg-black relative">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="flex flex-col lg:flex-row gap-16">
+                <div class="lg:w-1/3">
+                    <div class="mb-12 group relative w-40 h-40">
+                        <div class="w-full h-full bg-zinc-900 border border-white/10 rounded-3xl overflow-hidden relative z-10">
+                            <img src="https://res.cloudinary.com/dkqlmjsg2/image/upload/v1768563407/image-1_gq32pi.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        </div>
+                        <div class="absolute -inset-1 bg-gradient-to-tr from-cyan-500 to-blue-600 rounded-3xl blur opacity-30 group-hover:opacity-60 transition-opacity -z-10"></div>
+                    </div>
+                    <span class="text-gradient text-5xl font-black italic uppercase tracking-tighter">Resume</span>
+                    <div class="mt-10 space-y-6 text-zinc-300 text-sm font-medium leading-relaxed">
+                        <p>Most videos today are consumed the way people chew gum. Quickly, absent mindedly, and forgotten just as fast. I work on the opposite assumption.</p>
+                        <p class="text-zinc-400">I take unfinished ideas and turn them into experiences people feel quietly proud of watching till the end.</p>
+                    </div>
+                    <a href="https://prakashraj2709.github.io/Resume/" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 bg-zinc-900 border border-white/10 rounded-2xl hover:bg-white hover:text-black transition-all font-bold text-xs tracking-widest mt-12 group">
+                        <i data-lucide="download" class="w-4 h-4 group-hover:translate-y-1 transition-transform"></i> VIEW FULL CV
+                    </a>
+                </div>
+
+                <div class="lg:w-2/3 space-y-12 lg:pl-10 border-l border-cyan-500/30">
+                    <div class="relative pl-10 mb-12">
+                        <div class="absolute w-3 h-3 bg-cyan-500 rounded-full -left-[6.5px] top-1 shadow-[0_0_15px_#06b6d4]"></div>
+                        <span class="text-cyan-400 text-[11px] font-black tracking-widest uppercase">Nov 2025 – Present</span>
+                        <h3 class="text-2xl font-black text-white mt-1 uppercase italic">Senior Video Editor</h3>
+                        <p class="text-zinc-400 font-bold text-sm mb-4">Infinity Canvas | Marketing Agency</p>
+                        <ul class="space-y-3 text-zinc-500 text-sm">
+                            <li class="flex gap-2"><i data-lucide="arrow-right" class="w-4 h-4 text-cyan-500 shrink-0 mt-1 opacity-50"></i> Lead editor for India's top immigration consultants.</li>
+                            <li class="flex gap-2"><i data-lucide="arrow-right" class="w-4 h-4 text-cyan-500 shrink-0 mt-1 opacity-50"></i> Produce motion graphics-driven content with minimalistic design.</li>
+                            <li class="flex gap-2"><i data-lucide="arrow-right" class="w-4 h-4 text-cyan-500 shrink-0 mt-1 opacity-50"></i> Manage YouTube long-form, documentary styles, and cross-platform content.</li>
+                            <li class="flex gap-2"><i data-lucide="arrow-right" class="w-4 h-4 text-cyan-500 shrink-0 mt-1 opacity-50"></i> Mentor a team of three junior editors on workflow and AI techniques.</li>
+                        </ul>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute w-3 h-3 bg-cyan-500 rounded-full -left-[6.5px] top-1 shadow-[0_0_15px_#06b6d4]"></div>
+                        <span class="text-cyan-400 text-[11px] font-black tracking-widest uppercase">Oct 2024 – Sep 2025</span>
+                        <h3 class="text-2xl font-black text-white mt-1 uppercase italic">Video Editor / Post Production</h3>
+                        <p class="text-zinc-400 font-bold text-sm mb-4">LMES Academy</p>
+                        <ul class="space-y-3 text-zinc-500 text-sm">
+                            <li class="flex gap-2"><i data-lucide="arrow-right" class="w-4 h-4 text-cyan-500 shrink-0 mt-1 opacity-50"></i> Edited engaging YouTube content that boosted audience retention.</li>
+                            <li class="flex gap-2"><i data-lucide="arrow-right" class="w-4 h-4 text-cyan-500 shrink-0 mt-1 opacity-50"></i> Designed high-CTR custom thumbnails.</li>
+                            <li class="flex gap-2"><i data-lucide="arrow-right" class="w-4 h-4 text-cyan-500 shrink-0 mt-1 opacity-50"></i> Mastered Adobe suite workflows (Premiere, AE, PS, AI).</li>
+                        </ul>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute w-3 h-3 bg-cyan-500 rounded-full -left-[6.5px] top-1"></div>
+                        <span class="text-cyan-400 text-[11px] font-black tracking-widest uppercase">Jul 2023 – Jul 2024</span>
+                        <h3 class="text-2xl font-black text-white mt-1 uppercase italic">Editor</h3>
+                        <p class="text-zinc-400 font-bold text-sm mb-4">Madras Prop Store</p>
+                        <ul class="space-y-3 text-zinc-500 text-sm">
+                            <li class="flex gap-2"><i data-lucide="arrow-right" class="w-4 h-4 text-cyan-500 shrink-0 mt-1 opacity-50"></i> Designed campaign creatives and promotional posters.</li>
+                            <li class="flex gap-2"><i data-lucide="arrow-right" class="w-4 h-4 text-cyan-500 shrink-0 mt-1 opacity-50"></i> Managed social media content calendar with high-engagement visuals.</li>
+                        </ul>
+                    </div>
+                    <div class="relative pl-10">
+                        <div class="absolute w-3 h-3 bg-cyan-500 rounded-full -left-[6.5px] top-1"></div>
+                        <span class="text-cyan-400 text-[11px] font-black tracking-widest uppercase">Nov 2021 – Dec 2022</span>
+                        <h3 class="text-2xl font-black text-white mt-1 uppercase italic">Graphic Designer & Editor</h3>
+                        <p class="text-zinc-400 font-bold text-sm mb-4">Sri Sairam Engineering College</p>
+                        <ul class="space-y-3 text-zinc-500 text-sm">
+                            <li class="flex gap-2"><i data-lucide="arrow-right" class="w-4 h-4 text-cyan-500 shrink-0 mt-1 opacity-50"></i> Edited institution-scale event videos and recruitment campaigns.</li>
+                            <li class="flex gap-2"><i data-lucide="arrow-right" class="w-4 h-4 text-cyan-500 shrink-0 mt-1 opacity-50"></i> Designed brochures and promotional materials.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="py-40 px-6 border-t border-white/5 bg-black text-center">
+        <h2 class="text-4xl sm:text-6xl md:text-8xl font-black mb-12 tracking-tighter italic uppercase leading-[1.1]">
+            <span class="text-gradient">Let’s make something worth stopping for.</span>
+        </h2>
+        <div class="flex flex-col gap-8 items-center">
+            <a href="mailto:prakashraj6502@gmail.com" class="group flex items-center gap-4 text-xl md:text-3xl font-bold hover:text-cyan-400 transition-colors border-b border-white/10 pb-2 relative">
+                <i data-lucide="mail" class="text-cyan-500"></i> prakashraj6502@gmail.com
+                <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-cyan-500 transition-all group-hover:w-full"></span>
+            </a>
+            <a href="tel:+918248743311" class="group flex items-center gap-4 text-xl md:text-3xl font-bold hover:text-cyan-400 transition-colors border-b border-white/10 pb-2 relative">
+                <i data-lucide="phone" class="text-cyan-500"></i> +91 8248743311
+                <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-cyan-500 transition-all group-hover:w-full"></span>
+            </a>
+            <div class="flex gap-8 text-zinc-600 text-[10px] font-black tracking-[0.3em] uppercase mt-4">
+                <a href="https://www.instagram.com/prakashraj.edit/" target="_blank" class="hover:text-white flex items-center gap-2"><i data-lucide="instagram" class="w-4 h-4"></i> INSTAGRAM</a>
+                <a href="https://www.linkedin.com/in/prakashraj2709/" target="_blank" class="hover:text-white flex items-center gap-2"><i data-lucide="linkedin" class="w-4 h-4"></i> LINKEDIN</a>
+            </div>
+            <p class="text-zinc-700 text-[10px] font-black tracking-widest mt-10">© 2026 PRAKASH RAJ EDITS • CHENNAI, INDIA</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Generate Particles
+        const container = document.getElementById('particle-container');
+        for (let i = 0; i < 12; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            const size = Math.random() * 400 + 200;
+            p.style.width = p.style.height = size + 'px';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.top = Math.random() * 100 + '%';
+            p.style.animationDelay = Math.random() * 5 + 's';
+            container.appendChild(p);
+        }
+
+        // Filter Logic
+        function filter(cat) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-cyan-500', 'text-black', 'border-cyan-500');
+                btn.classList.add('border-white/10', 'text-zinc-500');
+                if(btn.innerText === cat) {
+                    btn.classList.add('bg-cyan-500', 'text-black', 'border-cyan-500');
+                    btn.classList.remove('border-white/10', 'text-zinc-500');
+                }
+            });
+            document.querySelectorAll('.project-card').forEach(card => {
+                if(cat === 'ALL' || card.dataset.cat === cat) card.classList.remove('hidden');
+                else card.classList.add('hidden');
+            });
+        }
+
+        // Video Playback on Hover
+        document.querySelectorAll('.project-card video').forEach(v => {
+            v.parentElement.addEventListener('mouseenter', () => v.play());
+            v.parentElement.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; });
+        });
+    </script>
+</body>
+</html>
